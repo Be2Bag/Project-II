@@ -1,0 +1,264 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%),hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --cardBG: rgb(246, 245, 252);
+  --cardHover:rgb(255, 255, 255);
+}
+:root .main {
+  width: 100%;
+}
+:root .main .secTitle .title {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: var(--textColor);
+  margin: 1rem 0;
+  z-index: 2;
+}
+:root .main .secTitle .title::after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 120px;
+  right: 0;
+  bottom: 5px;
+  z-index: -1;
+}
+:root .main .secContent {
+  justify-content: center;
+  gap: 1.5rem;
+}
+:root .main .secContent .singleDestination {
+  height: 100%;
+  display: grid;
+  row-gap: 10px;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+:root .main .secContent .singleDestination:hover {
+  background: var(--cardHover);
+  box-shadow: 1px 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+}
+:root .main .secContent .singleDestination .imageDiv {
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+:root .main .secContent .singleDestination .imageDiv img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+:root .main .secContent .singleDestination .imageDiv:hover img {
+  transform: scale(1.1);
+}
+:root .main .secContent .singleDestination .cardInfo {
+  padding: 1rem;
+}
+:root .main .secContent .singleDestination .cardInfo .destTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+:root .main .secContent .singleDestination .cardInfo .continent {
+  gap: 0.5rem;
+}
+:root .main .secContent .singleDestination .cardInfo .continent .icon {
+  color: var(--textColor);
+  font-size: 18px;
+}
+:root .main .secContent .singleDestination .cardInfo .continent .name {
+  color: var(--textColor);
+  font-weight: 400;
+  font-size: 14px;
+}
+:root .main .secContent .singleDestination .cardInfo .fees {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-top: 1.5px solid var(--greyText);
+  border-bottom: 1.5px solid var(--greyText);
+}
+:root .main .secContent .singleDestination .cardInfo .fees .grade {
+  color: var(--textColor);
+  max-width: 100px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root .main .secContent .singleDestination .cardInfo .fees .grade small {
+  text-align: center;
+  background: var(--gradientColor);
+  border-radius: 1rem;
+  color: var(--whiteColor);
+  padding: 1px 10px;
+  font-size: 10px;
+  margin-left: 3px;
+}
+:root .main .secContent .singleDestination .cardInfo .fees .price {
+  font-size: 2rem;
+  color: var(--blackColor);
+}
+:root .main .secContent .singleDestination .cardInfo .desc {
+  font-size: 13.5px;
+  color: var(--textColor);
+  font-weight: 500;
+}
+:root .main .secContent .singleDestination .cardInfo .btn {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+:root .main .secContent .singleDestination .cardInfo .btn .icon {
+  align-self: center;
+  font-size: 18px;
+}
+
+.MyModal {
+  position: absolute; /* ตำแหน่งของ modal จะเป็น absolute ทำให้ modal ไม่ถูกจำกัดโดยตำแหน่งของ elements อื่นใน layout */
+
+  top: 55%; /* ตำแหน่งจากด้านบนของหน้าจอหรือของ parent element จะเป็น 50% ของความสูงของมัน */
+  left: 50%; /* ตำแหน่งจากด้านซ้ายของหน้าจอหรือของ parent element จะเป็น 50% ของความกว้างของมัน */
+  transform: translate(-50%, -50%); /* ขยับ modal กลับไปทางด้านซ้ายและด้านบน 50% ของขนาดของตัว modal เอง เพื่อให้ตำแหน่งกึ่งกลางของมันอยู่ตรงกลางหน้าจอ */
+  width: 60%; /* กำหนดความกว้างของ modal ให้เป็น 60% ของ parent element หรือของหน้าจอ */
+  max-width: 800px; /* กำหนดความกว้างสูงสุดของ modal ไม่ให้เกิน 800px ไม่ว่าความกว้างของหน้าจอจะใหญ่เพียงใด */
+  background: var(--cardBG); /* ใช้ตัวแปรสีที่กำหนดไว้แล้วสำหรับพื้นหลังของ modal */
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549); /* เพิ่มเงาให้กับ modal */
+  border-radius: 10px; /* มุมของ modal จะมีรัศมี 10px ทำให้มุมดูมน */
+  padding: 20px; /* เพิ่มพื้นที่ว่างภายใน modal 20px จากขอบ */
+  overflow: auto; /* ถ้าเนื้อหาภายใน modal มีมากกว่าพื้นที่ที่กำหนด modal จะแสดง scroll bar */
+  outline: none; /* ลบเส้นขอบที่ browser อาจเพิ่มให้กับ element ที่กำลัง focus */
+  transition: 0.3s ease; /* การเปลี่ยนแปลงใด ๆ เช่น hover effect จะมี animation ที่ใช้เวลา 0.3 วินาที */
+  
+}
+
+.MyModal .modal-title {
+  color: #ff6347; /* ตัวอย่างของสีข้อความ */
+  margin-bottom: 10px; /* ตัวอย่างของระยะห่างด้านล่าง */
+  text-align: center; /* จัดตำแหน่งข้อความให้อยู่ตรงกลาง */
+  /* เพิ่มคุณสมบัติอื่น ๆ ที่คุณต้องการปรับแต่ง */
+}
+
+.MyModal .imageDiv img {
+  width: 100%; /* ให้รูปภาพมีความกว้างเต็ม 100% ของ parent element ของมัน */
+  border-radius: 5px; /* มุมของรูปภาพจะมีรัศมี 5px ทำให้มุมดูมน */
+  -o-object-fit: cover; /* รูปภาพจะถูกตัดเพื่อให้พอดีกับขนาดของ parent element โดยไม่เปลี่ยน aspect ratio (สำหรับ Opera browser) */
+  object-fit: cover; /* รูปภาพจะถูกตัดเพื่อให้พอดีกับขนาดของ parent element โดยไม่เปลี่ยน aspect ratio */
+}
+
+/* กำหนดสไตล์สำหรับปุ่มภายใน modal */
+.MyModal button {
+  margin-top: 1rem; /* เพิ่มระยะห่างด้านบนของปุ่ม 1rem */
+  color: var(--whiteColor); /* ตั้งค่าสีข้อความของปุ่มให้ใช้ตัวแปรสีที่กำหนดไว้แล้ว */
+  font-weight: 600; /* ตั้งค่าความหนาของข้อความในปุ่ม */
+  display: flex; /* ใช้ flexbox สำหรับการจัดวาง items ภายในปุ่ม */
+  justify-content: center; /* จัดตำแหน่งข้อความหรือ items ภายในปุ่มให้อยู่ตรงกลาง */
+  gap: 0.5rem; /* ตั้งค่าระยะห่างระหว่าง elements ภายในปุ่ม */
+  padding: 10px; /* เพิ่มพื้นที่ว่างภายในปุ่ม 10px จากขอบ */
+  background-color: var(--PrimaryColor); /* ตั้งค่าสีพื้นหลังของปุ่มให้ใช้ตัวแปรสีที่กำหนดไว้แล้ว */
+  border: none; /* ลบเส้นขอบของปุ่ม */
+  border-radius: 5px; /* มุมของปุ่มจะมีรัศมี 5px ทำให้มุมดูมน */
+  cursor: pointer; /* เมื่อเอาเมาส์ไปวางบนปุ่ม cursor จะเปลี่ยนเป็นมือชี้ */
+  transition: background-color 0.3s ease; /* เมื่อสีพื้นหลังของปุ่มเปลี่ยน เช่น เมื่อ hover จะมี animation ที่ใช้เวลา 0.3 วินาที */
+}
+
+.MyModal button:hover {
+  background-color: var(--SecondaryColor); /* เมื่อเอาเมาส์ไปวางบนปุ่ม สีพื้นหลังจะเปลี่ยนเป็นตัวแปรสีที่กำหนดไว้แล้ว */
+}
+
+.split-view {
+  display: flex;
+  justify-content: space-between; /* กระจาย space ระหว่าง column */
+}
+
+/* กำหนดความกว้างของคอลัมน์ซ้ายและขวา */
+.split-view .left-column,
+.split-view .right-column {
+  flex: 1; /* ให้คอลัมน์สองคอลัมน์มีความยืดหยุ่นและใช้พื้นที่ในอัตราส่วนเท่ากัน */
+  margin: 0 10px; /* หากต้องการ margin ระหว่างคอลัมน์ */
+}
+
+.MyModal .close-button {
+  position: absolute; /* ทำให้ปุ่มออกจากระบบ layout ปกติและให้เราสามารถกำหนดตำแหน่งได้เอง */
+  top: -3px; /* ตั้งค่าระยะห่างจากด้านบนของ modal */
+  right: 20px; /* ตั้งค่าระยะห่างจากด้านขวาของ modal */
+}
+
+.MyModal .close-button .icon {
+  color: var(--whiteColor);
+  font-size: 18px;
+}
+
+.MyModal .edit-button {
+  position: absolute; /* ทำให้ปุ่มออกจากระบบ layout ปกติและให้เราสามารถกำหนดตำแหน่งได้เอง */
+  top: -3px; /* ตั้งค่าระยะห่างจากด้านบนของ modal */
+  right: 62px; /* ตั้งค่าระยะห่างจากด้านขวาของ modal */
+}
+
+
+.MyModal .edit-button .icon {
+  color: var(--whiteColor);
+  font-size: 18px;
+}
+
+.phone-button {
+  font-size: 16px; /* ตั้งขนาดของตัวอักษร */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* อื่น ๆ รายละเอียดเกี่ยวกับปุ่ม, เช่น สี, padding, ฯลฯ. */
+}
+
+.phone-button .icon {
+  font-size: 16px; /* ตั้งขนาดของไอคอนให้เท่ากับขนาดของตัวอักษร */
+}
+
+/* ตัวเลือกเพิ่มเติมสำหรับ responsiveness */
+@media screen and (max-width: 768px) {
+  .split-view {
+    flex-direction: column; /* ทำให้ items จัดเรียงในแนวตั้งเมื่ออยู่บนหน้าจอขนาดเล็ก */
+  }
+}
+
+
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .title::after {
+    width: 155px !important;
+  }
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .secContent .singleDestination {
+    height: auto;
+  }
+}
+@media screen and (min-width: 840px) {
+  .secContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .secContent .singleDestination {
+    height: auto;
+  }
+}/*# sourceMappingURL=main.css.map */

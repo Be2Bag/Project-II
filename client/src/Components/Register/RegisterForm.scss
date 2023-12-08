@@ -1,0 +1,55 @@
+/* RegisterForm.scss */
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --textColor: hsl(240, 4%, 36%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--whiteColor);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: var(--whiteColor);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--greyText);
+    border-radius: 5px;
+    background-color: var(--inputColor);
+    color: var(--textColor);
+
+    &::placeholder {
+      color: var(--greyText);
+    }
+  }
+
+  button {
+    padding: 10px;
+    color: var(--whiteColor);
+    background: var(--gradientColor);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--SecondaryColor);
+    }
+  }
+}
